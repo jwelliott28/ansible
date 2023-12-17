@@ -1,0 +1,14 @@
+
+---
+
+- hosts: localhost 
+
+  name: Turn on VMs at HQ
+  connection: local
+  gather_facts: false
+  collections:
+    - community.vmware
+
+  roles:
+
+    - vm_poweron

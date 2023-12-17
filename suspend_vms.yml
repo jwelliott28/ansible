@@ -1,0 +1,15 @@
+
+---
+
+- hosts: localhost 
+
+  name: Suspend unnecessary VMs at HQ
+  connection: local
+  gather_facts: false
+  collections:
+    - community.vmware
+
+  roles:
+
+    - vm_suspension
+     

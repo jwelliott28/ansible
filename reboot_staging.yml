@@ -1,0 +1,9 @@
+
+
+---
+- name: Reboot staging VMs
+  hosts: client_staging
+
+  roles:
+
+    - reboot 

@@ -1,0 +1,22 @@
+
+---
+
+- name: Snapshot process for testing VMs
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  collections:
+    - community.vmware
+  pre_tasks:
+    - include_vars: /root/ansible/roles/snapshotting/vars/prod_vars.yml
+
+  roles:
+
+    - snapshotting
+
+- name: Update prod VMs
+  hosts: client_prod
+
+  roles:
+
+    - vm_updating

@@ -1,0 +1,8 @@
+---
+
+- name: Install setroubleshoot-server package and enable SELinux in permissive mode on target hosts
+  hosts: testing_inv
+
+  roles:
+
+    - selinux
