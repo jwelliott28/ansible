@@ -1,0 +1,26 @@
+PLAY [Install and configure WordPress on Rocky Linux 8] *********************************************************************************************************
+
+TASK [Gathering Facts] ******************************************************************************************************************************************
+ok: [10.10.60.123]
+
+TASK [include_vars] *********************************************************************************************************************************************
+ok: [10.10.60.123]
+
+TASK [Install required packages] ********************************************************************************************************************************
+ok: [10.10.60.123] => (item=httpd)
+ok: [10.10.60.123] => (item=mariadb)
+changed: [10.10.60.123] => (item=mariadb-server)
+ok: [10.10.60.123] => (item=php)
+failed: [10.10.60.123] (item=php-mysql) => {"ansible_loop_var": "item", "changed": false, "failures": ["No package php-mysql available."], "item": "php-mysql", "msg": "Failed to install some of the specified packages", "rc": 1, "results": []}
+changed: [10.10.60.123] => (item=php-gd)
+changed: [10.10.60.123] => (item=php-xml)
+changed: [10.10.60.123] => (item=php-mbstring)
+changed: [10.10.60.123] => (item=php-json)
+
+This was the first run of the playbook wp_setup.yml.
+
+- did not find a package called php-mysql
+- did not start httpd as it should have
+- did not start mariadb
+
+Will need to figure out why it didn't even bother running the rest of the playbook after package install section.

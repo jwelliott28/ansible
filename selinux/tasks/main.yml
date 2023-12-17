@@ -1,0 +1,20 @@
+---
+
+- name: Install setroubleshoot-server package on CentOS/yum
+  yum:
+    update_cache: true
+    name: 'setroubleshoot-server'
+    state: latest
+  when: ansible_distribution == 'CentOS'
+
+- name: Install setroubleshoot-server package on Rocky/dnf
+  dnf:
+    update_cache: true
+    name: 'setroubleshoot-server'
+    state: latest
+  when: ansible_distribution == 'Rocky' 
+
+- name: Enable and put SELinux in permissive mode, logging actions that would be blocked.
+  ansible.posix.selinux:
+    policy: targeted
+    state: permissive

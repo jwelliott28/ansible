@@ -1,0 +1,31 @@
+
+
+---
+- name: Remove a snapshot
+  vmware_guest_snapshot:
+    hostname: "{{ vcenter_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    datacenter: "{{ vcenter_datacenter }}"
+    moid: "{{ item }}"
+    state: remove_all
+    validate_certs: no
+  with_items: "{{ vm_moid }}"
+  delegate_to: localhost
+
+- name: Create a snapshot
+  community.vmware.vmware_guest_snapshot:
+    hostname: "{{ vcenter_hostname }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    datacenter: "{{ vcenter_datacenter }}"
+    moid: "{{ item }}"
+    quiesce: true
+    state: present
+    snapshot_name: Pre-Patch 
+    description: "CYA - Recover point before patching"
+    validate_certs: no
+  with_items: "{{ vm_moid }}"
+  delegate_to: localhost
+
+     

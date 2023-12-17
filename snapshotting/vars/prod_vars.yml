@@ -1,0 +1,11 @@
+---
+vcenter_hostname: "vcenterhost.local"
+vcenter_datacenter: "DC"
+vcenter_username: "administrator@vsphere.local"
+vcenter_password: "password"
+vm_moid: [ vm-006, vm-005, vm-004 ]
+
+#Client Production
+#vm-004 = VM 4
+#vm-005 = VM 5
+#vm-006 = VM 6

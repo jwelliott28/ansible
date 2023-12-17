@@ -1,0 +1,12 @@
+
+---
+vcenter_hostname: "vcenterhost.local"
+vcenter_datacenter: "DC"
+vcenter_username: "administrator@vsphere.local"
+vcenter_password: "password"
+vm_moid: [ vm-007, vm-008, vm-009 ]
+
+#vm-007 = VM 7
+#vm-008 = VM 8
+#vm-009 = VM 9
+

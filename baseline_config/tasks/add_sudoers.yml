@@ -1,0 +1,12 @@
+
+---
+
+- hosts: testing
+  tasks:
+  - name: add admin group to sudoers file
+    community.general.sudoers:
+      name: admin-sudo
+      nopassword: false
+      state: present
+      group: admin
+      commands: ALL

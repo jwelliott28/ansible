@@ -1,0 +1,9 @@
+
+---
+- hosts: testing
+  tasks:
+  - name: add admin user1
+    user:
+      name: user1
+      comment: user 1
+      groups: admin
